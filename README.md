@@ -1,1 +1,0 @@
-# my-auth-redirect
