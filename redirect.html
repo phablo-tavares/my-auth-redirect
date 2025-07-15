@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecionando...</title>
+    <script>
+        (function() {
+            // Pega o fragmento da URL (tudo depois do '#')
+            const fragment = window.location.hash.substring(1);
+
+            if (fragment) {
+                // Constrói a nova URL, substituindo '#' por '?'
+                // Isso transforma o fragmento em parâmetros de query que o Streamlit pode ler
+                const streamlitUrl = window.location.origin + window.location.pathname + '?' + fragment;
+                
+                // Redireciona o navegador para a nova URL do Streamlit
+                window.location.replace(streamlitUrl);
+            } else {
+                // Fallback caso não haja fragmento
+                document.body.innerText = "Token de autenticação não encontrado. Por favor, tente novamente a partir do seu e-mail.";
+            }
+        })();
+    </script>
+</head>
+<body>
+    <p>Aguarde, você está sendo redirecionado...</p>
+</body>
+</html>
